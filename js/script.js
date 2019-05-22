@@ -8,6 +8,8 @@ fetch('https://theblackwomanhistory.firebaseio.com/.json')
         console.log(woman)
 
         woman.content.forEach(mulheres => {
+            console.log(mulheres)
+
             let maraPerfil = document.createElement("div");
             maraPerfil.setAttribute("class", "maravilhosas__perfil");
 
@@ -18,16 +20,25 @@ fetch('https://theblackwomanhistory.firebaseio.com/.json')
             imgMara.setAttribute("class", "img-responsive");
             imgMara.setAttribute("alt", "Foto da personalidade");
 
-            if (mulheres.metadata) {
-                if (mulheres.metadata.image) {
-                    if (mulheres.metadata.image.url) {
-                        imgMara.setAttribute("src", mulheres.metadata.image.url)
-                    }
-                } else {
+            // if (mulheres.metadata) {
+            //     if (mulheres.metadata.image) {
+            //         if (mulheres.metadata.image.url) {
+            //             imgMara.setAttribute("src", mulheres.metadata.image.url)
+            //         }
+            //     } else {
+            //         imgMara.setAttribute("src", "img/img-mulher.png")
+            //     }
+            // } else {
+            //     imgMara.setAttribute("src", "img/img-mulher.png")
+            // }
+
+
+            for(let i = 0; i < woman.content.length; i++) {
+                if (mulheres.metadata == undefined || mulheres.metadata.image == "") {
                     imgMara.setAttribute("src", "img/img-mulher.png")
+                } else {
+                    imgMara.setAttribute("src", mulheres.metadata.image.url)
                 }
-            } else {
-                imgMara.setAttribute("src", "img/img-mulher.png")
             }
 
             let nomeMara = document.createElement("p");
@@ -42,3 +53,5 @@ fetch('https://theblackwomanhistory.firebaseio.com/.json')
     .catch(erro => {
         console.log(erro)
     })
+
+
