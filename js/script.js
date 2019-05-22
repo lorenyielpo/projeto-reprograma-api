@@ -16,7 +16,6 @@ fetch('https://theblackwomanhistory.firebaseio.com/.json')
 
             let imgMara = document.createElement('img')
             imgMara.setAttribute("class", "img-responsive");
-            imgMara.setAttribute("src", "#!");
             imgMara.setAttribute("alt", "Foto da personalidade");
 
             if (mulheres.metadata) {
