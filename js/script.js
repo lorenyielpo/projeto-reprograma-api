@@ -20,11 +20,7 @@ fetch('https://theblackwomanhistory.firebaseio.com/.json')
             imgMara.setAttribute("class", "img-responsive");
             imgMara.setAttribute("alt", "Foto da personalidade");
 
-            if (mulheres.metadata == undefined || mulheres.metadata.image == "") {
-                imgMara.setAttribute("src", "img/img-mulher.png")
-            } else {
-                imgMara.setAttribute("src", mulheres.metadata.image.url)
-            }
+            (mulheres.metadata && mulheres.metadata.image) ? imgMara.setAttribute("src", mulheres.metadata.image.url) : imgMara.setAttribute("src", "img/img-mulher.png");
 
             let nomeMara = document.createElement("p");
             nomeMara.innerHTML = mulheres.title
