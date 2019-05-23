@@ -52,48 +52,10 @@ btn.addEventListener("click", () => {
         body: JSON.stringify({
             'title': nomeMaravilhosa,
             'metadata': {
-                'image':{
-                    'url' : imageLink
+                'image': {
+                    'url': imageLink
                 }
             }
         })
     })
-        .then(response => {
-            return response.json();
-        })
-        .then(mulher => {
-            console.log(mulher);
-
-            mulher.content.forEach(mulherCard => {
-                let perfilMara = document.createElement("div");
-                perfilMara.setAttribute("class", "maravilhosas__perfil");
-
-                let maraA = document.createElement("a");
-                maraA.setAttribute('href', "#!");
-
-                let maraImg = document.createElement('img');
-                maraImg.setAttribute("class", "img-responsive");
-                maraImg.setAttribute("alt", "Foto da personalidade");
-
-                console.log(mulherCard.urlImage)
-
-                if (mulherCard.metadata && mulherCard.metadata.image) {
-                    maraImg.setAttribute("src", mulherCard.metadata.image.url)
-                } else {
-                    maraImg.setAttribute("src", "img/img-mulher.png")
-                };
-
-                let maraNome = document.createElement("p");
-                maraNome.innerHTML = mulherCard.title;
-
-                maravBox.appendChild(perfilMara);
-                perfilMara.appendChild(maraA);
-                maraA.appendChild(maraImg);
-                maraA.appendChild(maraNome);
-            })
-        })
-        .catch(erro => {
-            console.log(erro);
-        })
-
 })
