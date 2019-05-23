@@ -38,13 +38,12 @@ fetch('http://localhost:5001/maravilhosas/')
     })
 
 const btn = document.querySelector("#send-form");
-btn.addEventListener("click", (evento) => {
-    evento.preventDefault();
+btn.addEventListener("click", () => {
 
     nomeMaravilhosa = document.querySelector('#nomeMara').value;
     imageLink = document.querySelector('#imageUrl').value;
 
-    fetch('localhost:5001/maravilhosas/', {
+    fetch('http://localhost:5001/maravilhosas/', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -52,7 +51,11 @@ btn.addEventListener("click", (evento) => {
         },
         body: JSON.stringify({
             'title': nomeMaravilhosa,
-            'urlImage': imageLink
+            'metadata': {
+                'image':{
+                    'url' : imageLink
+                }
+            }
         })
     })
         .then(response => {
@@ -60,8 +63,6 @@ btn.addEventListener("click", (evento) => {
         })
         .then(mulher => {
             console.log(mulher);
-
-            location.reload();
 
             mulher.content.forEach(mulherCard => {
                 let perfilMara = document.createElement("div");
@@ -74,10 +75,10 @@ btn.addEventListener("click", (evento) => {
                 maraImg.setAttribute("class", "img-responsive");
                 maraImg.setAttribute("alt", "Foto da personalidade");
 
+                console.log(mulherCard.urlImage)
+
                 if (mulherCard.metadata && mulherCard.metadata.image) {
-                    maraImg.setAttribute("src", mulheres.metadata.image.url)
-                } else if (mulher.urlImage) {
-                    maraImg.setAttribute("src", imageLink)
+                    maraImg.setAttribute("src", mulherCard.metadata.image.url)
                 } else {
                     maraImg.setAttribute("src", "img/img-mulher.png")
                 };
