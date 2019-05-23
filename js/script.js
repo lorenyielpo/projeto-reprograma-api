@@ -20,7 +20,11 @@ fetch('http://localhost:5001/maravilhosas/')
             imgMara.setAttribute("class", "img-responsive");
             imgMara.setAttribute("alt", "Foto da personalidade");
 
-            (mulheres.metadata && mulheres.metadata.image) ? imgMara.setAttribute("src", mulheres.metadata.image.url) : imgMara.setAttribute("src", "img/img-mulher.png");
+            if (mulheres.metadata == undefined || mulheres.metadata.image == "" || mulheres.metadata.image.url == "") {
+                imgMara.setAttribute("src", "img/img-mulher.png")
+            } else {
+                imgMara.setAttribute("src", mulheres.metadata.image.url)
+            };
 
             let nomeMara = document.createElement("p");
             nomeMara.innerHTML = mulheres.title;
