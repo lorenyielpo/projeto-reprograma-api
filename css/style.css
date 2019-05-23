@@ -222,6 +222,10 @@ li {
     box-shadow: 0 3px 10px rgba(0,0,0,.2);
 }
 
+#imageUrl, #nomeMara{
+    width: 80%;
+}
+
 /* --- FOOTER --- */
 .rodape {
     background-color: #323534;
