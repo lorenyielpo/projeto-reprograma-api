@@ -160,7 +160,7 @@ li {
     height: 500px;
     background: linear-gradient(rgba(255, 0, 255, 0.2),
                                 rgba(255, 0, 255, 0.2)),
-                url(../img/turma6.jpeg);
+                url(../img/WhatsApp\ Image\ 2019-05-17\ at\ 22.34.48.jpeg);
     background-size: cover;
     background-position: center 14%;
     background-repeat: no-repeat;
@@ -224,7 +224,34 @@ li {
 
 #imageUrl, #nomeMara{
     width: 80%;
+    padding: 1%;
 }
+
+#mulheres-maravilhosas-cadastro h2{
+    font-size: 2rem;
+    color: #63458a;
+}
+
+input, label{
+    margin: 2%;
+}
+
+label{
+    font-size: 1.5rem;
+}
+
+#send-form{
+    border: none;
+    border-radius: 25%;
+    color: #ffffff;
+    background-color: #63458a;
+    padding: 1% 1.5%;
+}
+
+#mulheres-maravilhosas-cadastro{
+    border-top: 1px solid #323534;
+}
+
 
 /* --- FOOTER --- */
 .rodape {
