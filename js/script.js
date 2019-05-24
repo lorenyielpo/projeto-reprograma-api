@@ -42,7 +42,7 @@ fetch("http://localhost:5001/maravilhosas/")
             maraPerfil.appendChild(removerBtn);
 
             removerBtn.addEventListener("click", () => {
-                fetch("http://localhost:5001/maravilhosas/", {
+                fetch(`http://localhost:5001/maravilhosas/${mulheres.id}`, {
                     method: "DELETE",
                     headers: {
                         "Accept": "application/json",
