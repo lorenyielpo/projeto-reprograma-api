@@ -29,10 +29,36 @@ fetch('http://localhost:5001/maravilhosas/')
             let nomeMara = document.createElement("p");
             nomeMara.innerHTML = mulheres.title;
 
+            let removerBtn = document.createElement('button');
+            removerBtn.setAttribute('type', 'button');
+            removerBtn.setAttribute('data-id', mulheres.id)
+            removerBtn.setAttribute('class', 'btn')
+            removerBtn.innerHTML = "x";
+
             maravBox.appendChild(maraPerfil);
             maraPerfil.appendChild(aMara);
             aMara.appendChild(imgMara);
             aMara.appendChild(nomeMara);
+            maraPerfil.appendChild(removerBtn);
+
+            removerBtn.addEventListener('click', () => {
+                fetch('http://localhost:5001/maravilhosas/', {
+                    method: 'DELETE',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        'id': removerBtn.getAttribute('data-id')
+                    })
+                })
+                    .then(() => {
+                        maravBox.removeChild(maraPerfil);
+                    })
+                    .catch((erro)=>{
+                        console.log(erro);
+                    })
+            })
 
         });
 
